@@ -8,11 +8,11 @@ import subprocess
 
 def resize_jpg_pc(path_in, path_out, size, list_files):
 	for img_file in list_files:
-		convert_process = subprocess.call(['convert', os.path.join(path_in, img_file), 
+		convert_process = subprocess.call(['convert', os.path.join(path_in, img_file), # run на Linux не пашет.
             '-resize', size, os.path.join(path_out, img_file)])
 		print('File {} resize'.format(img_file))
 
-def resize_jpg_mac(path_in, path_out, size, list_files):
+def resize_jpg_mac(path_in, path_out, size, list_files): 
     for img_file in list_files:
         copy_process = subprocess.run(['cp', os.path.join(path_in, img_file), 
             os.path.join(path_out, img_file)])
@@ -22,7 +22,6 @@ def resize_jpg_mac(path_in, path_out, size, list_files):
         
 def read_file(path_in):
     files = os.listdir(path=path_in)
-    print(files)
     return files
 
 def main():
