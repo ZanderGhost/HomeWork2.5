@@ -28,6 +28,11 @@ def main():
     path_in = 'Source'
     path_out = 'Result'
     size = '200'
+    try:
+        create_dir = os.mkdir(path_out)
+    except OSError:
+        print('Директория уже существует')
+        
     l_files = read_file(path_in)
     if sys.platform == 'darwin':
         resize_jpg_mac(path_in, path_out, size, l_files)
